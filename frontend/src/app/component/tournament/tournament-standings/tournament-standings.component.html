@@ -1,0 +1,25 @@
+<h1 class="display-1">Standings of {{standings?.name}}</h1>
+
+<form #form="ngForm" (submit)="submit(form)">
+  <app-tournament-standings-branch
+    *ngIf="standings"
+    [treeBranch]="standings.tree"
+    [allParticipants]="standings.participants"
+    [roundNumber] = "initialRoundNumber"
+    [entryNumber]="initialEntryNumber"
+    [disabledBranches]="ifComplete()"
+    [thisBrachDisable]="ifComplete()"
+    ></app-tournament-standings-branch>
+
+  <div class="d-flex justify-content-end mb-3">
+    <button type="button"
+            class="btn btn-secondary me-1"
+            (click)="generateFirstRound()"
+            [disabled]="!ifEnableToGenerate()"
+    >Generate First Round Matches</button>
+    <button type="submit"
+            class="btn btn-primary"
+            [disabled]="ifComplete()"
+    >Save</button>
+  </div>
+</form>

@@ -1,0 +1,5 @@
+.was-validated .form-control:valid,
+.was-validated .form-select:valid:not([multiple]):not([size]),
+.form-control.is-valid{
+  background-image: none;
+}

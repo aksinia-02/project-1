@@ -1,0 +1,23 @@
+package at.ac.tuwien.sepr.assignment.individual.exception;
+
+import java.util.List;
+
+/**
+ * Exception that signals, that data,
+ * that came from outside the backend, conflicts with the current state of the system.
+ * The data violates some constraint on relationships
+ * (rather than an invariant).
+ * Contains a list of all conflict checks that failed when validating the piece of data in question.
+ */
+public class ConflictException extends ErrorListException {
+
+  /**
+   * Constructs a new ConflictException with the specified message summary and errors.
+   *
+   * @param messageSummary a summary of the conflict message
+   * @param errors a list of error messages related to the conflict
+   */
+  public ConflictException(String messageSummary, List<String> errors) {
+    super("Conflicts", messageSummary, errors);
+  }
+}
